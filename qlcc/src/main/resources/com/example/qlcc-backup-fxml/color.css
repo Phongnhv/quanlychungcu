@@ -6,19 +6,19 @@
 .colorSearch{
     -fx-background-color: transparent;
     -fx-border-width: 0px 0px 2px 0px;
-    -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);
+    -fx-border-color: linear-gradient(to right top,#facd68, #fc76b3);
 }
 
 .colorCombo{
     -fx-background-color: transparent;
-    -fx-border-color: linear-gradient( to right top,#facd68, #fc76b3);
+    -fx-border-color: linear-gradient(to right top,#facd68, #fc76b3);
 }
 
 
 .color {
-    -fx-background-color: linear-gradient(to top, #ee07ce, #ff0b8c, #ff6d4f, #ffb119, #efe82f);
+    -fx-background-color: linear-gradient(to right top,#facd68, #fc76b3);
 }
 
 .border {
-    -fx-b-color: linear-gradient(to top, #ee07ce, #ff0b8c, #ff6d4f, #ffb119, #efe82f);
+    -fx-b-color: linear-gradient(to right top,#facd68, #fc76b3);
 }

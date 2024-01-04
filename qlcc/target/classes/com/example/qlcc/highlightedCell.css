@@ -1,0 +1,9 @@
+.green-row{
+  -fx-border-color: green;
+  -fx-border-width:  0px 0px 0px 1px;
+}
+
+.red-row{
+  -fx-border-color: red;
+  -fx-border-width:  0px 0px 0px 1px
+}

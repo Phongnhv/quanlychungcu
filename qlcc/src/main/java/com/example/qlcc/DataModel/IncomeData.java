@@ -3,11 +3,11 @@ package com.example.qlcc.DataModel;
 import java.sql.Date;
 
 public class IncomeData {
-    private String Source;
-    private double Amount;
-    private String Category;
-    private Date date;
-    private int No;
+    private final String Source;
+    private final double Amount;
+    private final String Category;
+    private final Date date;
+    private final int No;
 
     public IncomeData(int No, String Source, double Amount, String Category,Date date){
         this.No = No;

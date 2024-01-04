@@ -21,7 +21,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qlcc.Controller.dashboardController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.qlcc.dashboardController">
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -29,7 +29,7 @@
                <left>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="4.8" layoutY="140.0" prefHeight="564.0" prefWidth="195.0" styleClass="nav-form" stylesheets="@dashboardDes.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="4.8" layoutY="140.0" prefHeight="567.0" prefWidth="195.0" styleClass="nav-form" stylesheets="@dashboardDes.css" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="67.0" layoutY="93.0" size="7em" />
                               <Label layoutX="56.0" layoutY="108.0" text="Welcome," textFill="#bcbcbc">
@@ -37,7 +37,7 @@
                                     <Font name="Tahoma" size="20.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="55.0" layoutY="134.0" text="Username">
+                              <Label fx:id="Username" layoutX="55.0" layoutY="134.0" text="Username">
                                  <font>
                                     <Font name="Tahoma" size="20.0" />
                                  </font>
@@ -127,7 +127,7 @@
                                     <String fx:value="logout" />
                                  </styleClass>
                               </Button>
-                              <Label layoutX="61.0" layoutY="521.0" text="Sign Out" textFill="WHITE">
+                              <Label layoutX="67.0" layoutY="528.0" text="Sign Out" textFill="WHITE">
                                  <font>
                                     <Font name="Tahoma Bold" size="15.0" />
                                  </font>
@@ -159,7 +159,7 @@
                         <AnchorPane layoutX="3.2" layoutY="28.0" prefHeight="36.0" prefWidth="1047.0" styleClass="top-form" stylesheets="@dashboardDes.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <FontAwesomeIcon glyphName="CREDIT_CARD" layoutX="15.2" layoutY="24.028571701049806" size="1.5em" text="" AnchorPane.leftAnchor="15.2" AnchorPane.topAnchor="8.600000000000001" />
-                              <Label layoutX="48.0" layoutY="8.0" text="Apartment and Cultural House Facility Management">
+                              <Label layoutX="48.0" layoutY="8.0" text="Household and Cultural House Facility Management">
                                  <font>
                                     <Font name="Tahoma" size="15.0" />
                                  </font>
@@ -182,7 +182,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="Activity_form" layoutX="167.0" layoutY="214.0" prefHeight="560.0" prefWidth="836.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="Activity_form" layoutX="167.0" layoutY="214.0" prefHeight="560.0" prefWidth="836.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="13.0" layoutY="9.0" prefHeight="538.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
                                  <styleClass>
@@ -205,11 +205,12 @@
                                           <TableView fx:id="Expense_table1" layoutX="14.0" layoutY="63.0" onMouseClicked="#addActivitySelect" prefHeight="232.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
                                              <columns>
                                                 <TableColumn fx:id="Expense_col_no11" minWidth="0.0" prefWidth="0.0" />
-                                                <TableColumn fx:id="Expense_col_purpose1" prefWidth="152.80001831054688" text="Name" />
-                                                <TableColumn fx:id="Expense_col_category1" prefWidth="132.0" text="Host Name" />
-                                                <TableColumn fx:id="Expense_col_amount1" prefWidth="122.39996337890625" text="Location" />
-                                                <TableColumn fx:id="Expense_col_date1" minWidth="0.0" prefWidth="166.39996337890625" text="Date" />
-                                                <TableColumn fx:id="Expense_col_description1" prefWidth="205.60003662109375" text="Description" />
+                                                <TableColumn fx:id="Expense_col_purpose1" prefWidth="121.59999084472656" text="Name" />
+                                                <TableColumn fx:id="Expense_col_category1" prefWidth="137.60003662109375" text="Host Name" />
+                                                <TableColumn fx:id="Expense_col_amount1" prefWidth="145.5999755859375" text="Location" />
+                                                <TableColumn fx:id="Expense_col_date1" minWidth="0.0" prefWidth="135.20001220703125" text="Start Date" />
+                                                <TableColumn fx:id="Expense_col_endDate" prefWidth="120.7999267578125" text="End Date" />
+                                                <TableColumn fx:id="Expense_col_description1" prefWidth="115.2000732421875" text="Description" />
                                              </columns>
                                           </TableView>
                                        </children>
@@ -232,40 +233,46 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="Activity_location" layoutX="134.0" layoutY="427.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="439.0" />
-                                    <Label alignment="CENTER_RIGHT" layoutX="95.0" layoutY="471.0" text="Date" AnchorPane.topAnchor="479.0">
+                                    <Label alignment="CENTER_RIGHT" layoutX="427.0" layoutY="331.2" text="Start Date" AnchorPane.topAnchor="331.2">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="Activity_date" layoutX="134.0" layoutY="468.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="476.0" />
-                                    <Label layoutX="423.0" layoutY="343.0" text="Description">
+                                    <DatePicker fx:id="Activity_date" layoutX="495.0" layoutY="328.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="495.0" AnchorPane.topAnchor="328.0" />
+                                    <Label layoutX="421.0" layoutY="393.0" text="Description" AnchorPane.topAnchor="405.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Activity_Description" alignment="TOP_LEFT" layoutX="503.0" layoutY="341.0" prefHeight="74.0" prefWidth="265.0" styleClass="textfield" stylesheets="@dashboardDes.css" />
-                                    <Button fx:id="Activity_submit" layoutX="674.0" layoutY="482.2000000000001" mnemonicParsing="false" onAction="#ActivityAdd" prefHeight="35.0" prefWidth="94.0" styleClass="submit-btn" stylesheets="@dashboardDes.css" text="Submit" AnchorPane.bottomAnchor="21.0" />
-                                    <Button fx:id="Activity_clear" layoutX="674.0" layoutY="436.0" mnemonicParsing="false" onAction="#ActivityClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="67.2000000000001" />
-                                    <Button fx:id="Activity_delete" layoutX="541.0" layoutY="437.0" mnemonicParsing="false" onAction="#ActivityDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.bottomAnchor="66.2000000000001" />
-                                    <Button fx:id="Activity_update" layoutX="541.0" layoutY="482.0" mnemonicParsing="false" onAction="#ActivityUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" />
+                                    <TextField fx:id="Activity_Description" alignment="TOP_LEFT" layoutX="501.0" layoutY="391.0" prefHeight="65.0" prefWidth="266.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="495.0" AnchorPane.topAnchor="402.0" />
+                                    <Button fx:id="Activity_submit" layoutX="714.0" layoutY="499.0" mnemonicParsing="false" onAction="#ActivityAdd" prefHeight="35.0" prefWidth="94.0" styleClass="submit-btn" stylesheets="@dashboardDes.css" text="Submit" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="8.0" />
+                                    <Button fx:id="Activity_clear" layoutX="674.0" layoutY="436.0" mnemonicParsing="false" onAction="#ActivityClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="332.0" />
+                                    <Button fx:id="Activity_delete" layoutX="541.0" layoutY="437.0" mnemonicParsing="false" onAction="#ActivityDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="224.0" />
+                                    <Button fx:id="Activity_update" layoutX="541.0" layoutY="482.0" mnemonicParsing="false" onAction="#ActivityUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="116.0" />
                                     <ComboBox fx:id="Activity_hostID" layoutX="144.0" layoutY="395.0" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="402.0" />
                                     <Label layoutX="72.0" layoutY="405.0" text="Host ID">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
+                                    <Label alignment="CENTER_RIGHT" layoutX="430.0" layoutY="367.0" text="End Date">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="Activity_endDate" layoutX="495.0" layoutY="364.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="495.0" AnchorPane.topAnchor="365.0" />
                                  </children>
                               </AnchorPane>
                            </children></AnchorPane>
                         <AnchorPane fx:id="Available_form" layoutX="93.0" layoutY="113.0" prefHeight="560.0" prefWidth="836.0" stylesheets="@dashboardDes.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="12.0" layoutY="8.8" prefHeight="538.0" prefWidth="810.0" stylesheets="@dashboardDes.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="9.0">
+                              <AnchorPane layoutX="12.0" layoutY="8.8" prefHeight="546.0" prefWidth="814.0" stylesheets="@dashboardDes.css" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="9.0">
                                  <styleClass>
                                     <String fx:value="shadow" />
                                     <String fx:value="white-bg" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane prefHeight="314.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
+                                    <AnchorPane prefHeight="323.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="white-bg" />
@@ -276,7 +283,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font></TextField>
                                           <FontAwesomeIcon glyphName="SEARCH" layoutX="19.0" layoutY="33.0" size="1.5em" />
-                                          <TableView fx:id="Expense_table" layoutX="14.0" layoutY="63.0" onMouseClicked="#addExpenseSelect" prefHeight="232.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
+                                          <TableView fx:id="Expense_table" layoutX="14.0" layoutY="63.0" onMouseClicked="#addExpenseSelect" prefHeight="243.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
                                             <columns>
                                               <TableColumn fx:id="Expense_col_no1" minWidth="0.0" prefWidth="0.0" />
                                                 <TableColumn fx:id="Expense_col_purpose" prefWidth="171.19998168945312" text="Name" />
@@ -287,39 +294,39 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <Label layoutX="38.0" layoutY="343.0" text="Facility Name">
+                                    <Label layoutX="38.0" layoutY="343.0" text="Facility Name" AnchorPane.topAnchor="340.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Expense_purpose" layoutX="134.0" layoutY="341.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" />
-                                    <Label layoutX="65.0" layoutY="387.0" text="Category">
+                                    <TextField fx:id="Expense_purpose" layoutX="134.0" layoutY="336.6" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="337.0" />
+                                    <Label layoutX="65.0" layoutY="387.0" text="Category" AnchorPane.topAnchor="377.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="71.0" layoutY="430.0" text="Amount">
+                                    <Label layoutX="71.0" layoutY="430.0" text="Amount" AnchorPane.topAnchor="413.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Expense_amount" layoutX="134.0" layoutY="427.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" />
-                                    <Label layoutX="463.0" layoutY="343.0" text="Note">
+                                    <TextField fx:id="Expense_amount" layoutX="134.0" layoutY="427.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="411.0" />
+                                    <Label layoutX="463.0" layoutY="343.0" text="Note" AnchorPane.topAnchor="340.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Expense_description" alignment="TOP_LEFT" layoutX="503.0" layoutY="341.0" prefHeight="74.0" prefWidth="265.0" styleClass="textfield" stylesheets="@dashboardDes.css" />
-                                    <Button fx:id="Expense_submitBtn" layoutX="674.0" layoutY="482.2000000000001" mnemonicParsing="false" onAction="#ExpenseAdd" prefHeight="35.0" prefWidth="94.0" styleClass="submit-btn" stylesheets="@dashboardDes.css" text="Submit" AnchorPane.bottomAnchor="21.0" />
-                                    <Button fx:id="Expense_clearBtn" layoutX="674.0" layoutY="436.0" mnemonicParsing="false" onAction="#ExpenseClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="67.2000000000001" />
-                                    <Button fx:id="Expense_deleteBtn" layoutX="541.0" layoutY="437.0" mnemonicParsing="false" onAction="#ExpenseDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.bottomAnchor="66.2000000000001" />
-                                    <Button fx:id="Expense_updateBtn" layoutX="541.0" layoutY="492.0" mnemonicParsing="false" onAction="#ExpenseUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" />
-                                    <TextField fx:id="Expense_category" layoutX="134.0" layoutY="384.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" />
+                                    <TextField fx:id="Expense_description" alignment="TOP_LEFT" layoutX="503.0" layoutY="341.0" prefHeight="74.0" prefWidth="265.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="337.0" />
+                                    <Button fx:id="Expense_submitBtn" layoutX="705.0" layoutY="503.0" mnemonicParsing="false" onAction="#ExpenseAdd" prefHeight="35.0" prefWidth="94.0" styleClass="submit-btn" stylesheets="@dashboardDes.css" text="Submit" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+                                    <Button fx:id="Expense_clearBtn" layoutX="447.0" layoutY="499.0" mnemonicParsing="false" onAction="#ExpenseClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="224.0" />
+                                    <Button fx:id="Expense_deleteBtn" layoutX="310.0" layoutY="499.0" mnemonicParsing="false" onAction="#ExpenseDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="332.0" />
+                                    <Button fx:id="Expense_updateBtn" layoutX="588.0" layoutY="499.0" mnemonicParsing="false" onAction="#ExpenseUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="116.0" />
+                                    <TextField fx:id="Expense_category" layoutX="134.0" layoutY="384.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="374.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="Borrow_form" layoutX="10.0" layoutY="10.0" prefHeight="560.0" prefWidth="836.0">
+                        <AnchorPane fx:id="Borrow_form" layoutX="10.0" layoutY="10.0" prefHeight="560.0" prefWidth="836.0" visible="false">
                            <children>
                               <AnchorPane layoutX="4.0" layoutY="2.0" prefHeight="538.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
                                  <styleClass>
@@ -327,7 +334,7 @@
                                     <String fx:value="white-bg" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane prefHeight="314.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
+                                    <AnchorPane prefHeight="295.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="white-bg" />
@@ -339,60 +346,65 @@
                                              </font>
                                           </TextField>
                                           <FontAwesomeIcon glyphName="SEARCH" layoutX="19.0" layoutY="33.0" size="1.5em" />
-                                          <TableView fx:id="Borrow_table" layoutX="14.0" layoutY="63.0" onMouseClicked="#addBorrowSelect" prefHeight="232.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
+                                          <TableView fx:id="Borrow_table" layoutX="14.0" layoutY="63.0" onMouseClicked="#addBorrowSelect" prefHeight="217.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
                                              <columns>
                                                 <TableColumn fx:id="Expense_col_no111" minWidth="0.0" prefWidth="0.0" />
-                                                <TableColumn fx:id="Borrow_col_name" prefWidth="113.60000610351562" text="Facility Name" />
-                                                <TableColumn fx:id="Borrow_col_hostname" prefWidth="145.5999755859375" text="Name of Borrower" />
-                                                <TableColumn fx:id="Borrow_col_amount" prefWidth="102.4000244140625" text="Amount" />
-                                                <TableColumn fx:id="Borrow_col_date1" minWidth="0.0" prefWidth="149.60003662109375" text="Starting date" />
-                                                <TableColumn fx:id="Borrow_col_date2" prefWidth="106.4000244140625" text="Ending date" />
-                                                <TableColumn fx:id="Borrow_col_activity" prefWidth="160.7999267578125" text="Activity Included" />
+                                                <TableColumn fx:id="Borrow_col_name" prefWidth="129.60000610351562" text="Facility Name" />
+                                                <TableColumn fx:id="Borrow_col_hostname" prefWidth="128.79998779296875" text="Name of Borrower" />
+                                                <TableColumn fx:id="Borrow_col_amount" prefWidth="105.5999755859375" text="Amount" />
+                                                <TableColumn fx:id="Borrow_col_date1" minWidth="0.0" prefWidth="132.0" text="Starting date" />
+                                                <TableColumn fx:id="Borrow_col_date2" prefWidth="108.0" text="Ending date" />
+                                                <TableColumn fx:id="Borrow_col_activity" prefWidth="187.199951171875" text="Activity Included" />
                                              </columns>
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <Label layoutX="63.0" layoutY="344.0" text="Facility Name" AnchorPane.rightAnchor="664.1999999999999" AnchorPane.topAnchor="328.0">
+                                    <Label layoutX="63.199999999999974" layoutY="311.0" text="Facility Name" AnchorPane.rightAnchor="664.0" AnchorPane.topAnchor="311.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Borrow_FacName" layoutX="152.8" layoutY="325.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="152.8" AnchorPane.topAnchor="325.0" />
-                                    <Label layoutX="35.0" layoutY="390.0" text="Name of Borrower" AnchorPane.rightAnchor="664.1999999999999" AnchorPane.topAnchor="365.0">
+                                    <Label layoutX="31.99999999999997" layoutY="347.8" text="Name of Borrower" AnchorPane.rightAnchor="664.0" AnchorPane.topAnchor="347.8">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="Borrow_hostname" layoutX="153.0" layoutY="387.0" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="362.0" />
-                                    <Label layoutX="90.0" layoutY="438.0" text="Amount" AnchorPane.topAnchor="439.0">
+                                    <ComboBox fx:id="Borrow_hostname" layoutX="152.8" layoutY="345.4" onAction="#addBorrowerIDSelection" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="152.8" AnchorPane.topAnchor="345.4" />
+                                    <Label layoutX="90.0" layoutY="422.2" text="Amount" AnchorPane.topAnchor="422.2">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Borrow_amount" layoutX="149.0" layoutY="435.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="436.0" />
-                                    <Label alignment="CENTER_RIGHT" layoutX="453.0" layoutY="344.0" text="Starting Date">
+                                    <TextField fx:id="Borrow_amount" layoutX="152.8" layoutY="419.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="152.8" AnchorPane.topAnchor="419.0" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="464.0" layoutY="312.0" text="Starting Date" AnchorPane.topAnchor="311.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="Borrow_date1" layoutX="547.0" layoutY="338.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="341.0" />
-                                    <Label layoutX="41.0" layoutY="485.0" text="Activity Included" AnchorPane.topAnchor="476.0">
+                                    <DatePicker fx:id="Borrow_date1" layoutX="558.0" layoutY="309.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="308.4" />
+                                    <Label layoutX="41.0" layoutY="459.0" text="Activity Included" AnchorPane.topAnchor="459.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="Borrow_add" layoutX="674.0" layoutY="482.2000000000001" mnemonicParsing="false" onAction="#BorrowAdd" prefHeight="35.0" prefWidth="94.0" styleClass="submit-btn" stylesheets="@dashboardDes.css" text="Submit" AnchorPane.bottomAnchor="21.0" />
-                                    <Button fx:id="Borrow_clear" layoutX="674.0" layoutY="436.0" mnemonicParsing="false" onAction="#BorrowClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="67.2000000000001" />
-                                    <Button fx:id="Borrow_delete" layoutX="541.0" layoutY="437.0" mnemonicParsing="false" onAction="#BorrowDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.bottomAnchor="66.2000000000001" />
-                                    <Button fx:id="Borrow_update" layoutX="541.0" layoutY="482.0" mnemonicParsing="false" onAction="#BorrowUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" />
-                                    <Label alignment="CENTER_RIGHT" layoutX="459.0" layoutY="390.0" text="Ending Date">
+                                    <Button fx:id="Borrow_add" layoutX="708.0" layoutY="495.2" mnemonicParsing="false" onAction="#BorrowAdd" prefHeight="35.0" prefWidth="94.0" styleClass="submit-btn" stylesheets="@dashboardDes.css" text="Add" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="8.0" />
+                                    <Button fx:id="Borrow_clear" layoutX="473.0" layoutY="495.2" mnemonicParsing="false" onAction="#BorrowClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="224.0" />
+                                    <Button fx:id="Borrow_delete" layoutX="352.0" layoutY="495.2" mnemonicParsing="false" onAction="#BorrowDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Return" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="332.0" />
+                                    <Button fx:id="Borrow_update" layoutX="593.0" layoutY="494.0" mnemonicParsing="false" onAction="#BorrowUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" AnchorPane.rightAnchor="116.0" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="470.0" layoutY="358.0" text="Ending Date" AnchorPane.topAnchor="347.8">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="Borrow_date2" layoutX="547.0" layoutY="387.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="387.0" />
-                                    <ComboBox fx:id="Borrow_activity" layoutX="149.0" layoutY="482.0" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="473.0" />
-                                    <ComboBox fx:id="Borrow_hostID" layoutX="153.0" layoutY="396.0" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="399.0" />
+                                    <DatePicker fx:id="Borrow_date2" layoutX="558.0" layoutY="355.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="345.4" />
+                                    <ComboBox fx:id="Borrow_activity" layoutX="152.8" layoutY="455.8" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="152.8" AnchorPane.topAnchor="455.8" />
+                                    <ComboBox fx:id="Borrow_hostID" layoutX="152.8" layoutY="382.2" prefHeight="26.0" prefWidth="214.0" promptText="Choose" styleClass="textfield" AnchorPane.leftAnchor="152.8" AnchorPane.topAnchor="382.2" />
+                                    <Label layoutX="67.0" layoutY="385.0" text="Borrower ID">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="Borrow_FacName" layoutX="398.0" layoutY="309.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" AnchorPane.leftAnchor="152.8" AnchorPane.topAnchor="308.4" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -405,38 +417,38 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <Label layoutX="8.0" layoutY="32.0" text="House Name">
+                                    <Label layoutX="21.0" layoutY="32.0" text="House Name">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="House_name" layoutX="94.0" layoutY="29.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="94.0" />
-                                    <Label layoutX="19.0" layoutY="65.0" text="Number of">
+                                    <TextField fx:id="House_name" layoutX="105.0" layoutY="29.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="105.0" />
+                                    <Label layoutX="32.0" layoutY="65.0" text="Number of">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="House_num" editable="false" layoutX="94.0" layoutY="69.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="94.0" />
-                                    <Label layoutX="43.0" layoutY="115.0" text="Owner">
+                                    <TextField fx:id="House_num" editable="false" layoutX="105.0" layoutY="69.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="105.0" />
+                                    <Label layoutX="56.0" layoutY="115.0" text="Owner">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="18.0" layoutY="156.0" text="ResidentID">
+                                    <Label layoutX="31.0" layoutY="156.0" text="ResidentID">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
                                     <Button fx:id="House_delete" layoutX="32.0" layoutY="207.0" mnemonicParsing="false" onAction="#HouseDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.leftAnchor="32.0" />
                                     <Button fx:id="House_clear" layoutX="171.99999999999997" layoutY="207.0" mnemonicParsing="false" onAction="#HouseClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.rightAnchor="32.0" />
-                                    <Button fx:id="House_update" layoutX="171.99999999999997" layoutY="254.0" mnemonicParsing="false" onAction="#HouseUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" AnchorPane.rightAnchor="32.0" />
-                                    <Label layoutX="27.0" layoutY="80.0" text="Residents">
+                                    <Button fx:id="House_update" layoutX="102.0" layoutY="261.0" mnemonicParsing="false" onAction="#HouseUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" AnchorPane.rightAnchor="101.99999999999997" />
+                                    <Label layoutX="40.0" layoutY="80.0" text="Residents">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="House_ownerID" layoutX="92.0" layoutY="153.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" AnchorPane.leftAnchor="94.0" />
-                                    <ComboBox fx:id="House_owner" layoutX="92.0" layoutY="112.0" onAction="#addHouseResidentIDSelection" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" AnchorPane.leftAnchor="94.0" />
+                                    <ComboBox fx:id="House_ownerID" layoutX="105.0" layoutY="153.0" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" AnchorPane.leftAnchor="105.0" />
+                                    <ComboBox fx:id="House_owner" layoutX="105.0" layoutY="112.0" onAction="#addHouseResidentIDSelection" prefHeight="26.0" prefWidth="160.0" styleClass="textfield" AnchorPane.leftAnchor="105.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="346.0" layoutY="19.0" prefHeight="522.0" prefWidth="462.0" stylesheets="@dashboardDes.css">
@@ -467,7 +479,7 @@
                                     <String fx:value="white-bg" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane prefHeight="266.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
+                                    <AnchorPane prefHeight="282.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
                                        <styleClass>
                                           <String fx:value="shadow" />
                                           <String fx:value="white-bg" />
@@ -479,7 +491,7 @@
                                              </font>
                                           </TextField>
                                           <FontAwesomeIcon glyphName="SEARCH" layoutX="19.0" layoutY="30.0" size="1.5em" />
-                                          <TableView fx:id="Resident_table" layoutX="14.0" layoutY="52.0" onMouseClicked="#addResidentSelect" prefHeight="198.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
+                                          <TableView fx:id="Resident_table" layoutX="14.0" layoutY="52.0" onMouseClicked="#addResidentSelect" prefHeight="214.0" prefWidth="779.0" stylesheets="@dashboardDes.css">
                                              <columns>
                                                 <TableColumn fx:id="Expense_col_no1111" minWidth="0.0" prefWidth="0.0" />
                                                 <TableColumn fx:id="Resident_col_name" prefWidth="113.59996032714844" text="Name" />
@@ -494,30 +506,30 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <Label layoutX="57.59999999999993" layoutY="284.6" text="Name" AnchorPane.rightAnchor="715.2" AnchorPane.topAnchor="284.6">
+                                    <Label layoutX="57.59999999999993" layoutY="299.4" text="Name" AnchorPane.rightAnchor="715.2" AnchorPane.topAnchor="299.4">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Resident_name" layoutX="102.4" layoutY="281.4" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="282.0" />
-                                    <Label layoutX="16.799999999999926" layoutY="320.6" text="Date of Birth" AnchorPane.rightAnchor="715.2" AnchorPane.topAnchor="331.0">
+                                    <TextField fx:id="Resident_name" layoutX="102.4" layoutY="297.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="297.0" />
+                                    <Label layoutX="16.799999999999926" layoutY="337.8" text="Date of Birth" AnchorPane.rightAnchor="715.2" AnchorPane.topAnchor="337.8">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="51.0" layoutY="357.4" text="Gender" AnchorPane.topAnchor="376.0">
+                                    <Label layoutX="51.0" layoutY="375.4" text="Gender" AnchorPane.topAnchor="375.4">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Resident_gender" layoutX="102.4" layoutY="353.4" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="372.0" />
-                                    <Label alignment="CENTER_RIGHT" layoutX="367.0" layoutY="384.0" text="Role" AnchorPane.topAnchor="376.0">
+                                    <TextField fx:id="Resident_gender" layoutX="102.4" layoutY="373.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="373.0" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="367.0" layoutY="375.4" text="Role" AnchorPane.topAnchor="375.4">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="Resident_dob" layoutX="102.4" layoutY="317.4" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="327.0" />
-                                    <Label layoutX="28.0" layoutY="393.4" text="Hometown" AnchorPane.topAnchor="421.0">
+                                    <DatePicker fx:id="Resident_dob" layoutX="102.4" layoutY="334.6" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="334.6" />
+                                    <Label layoutX="28.0" layoutY="413.8" text="Hometown" AnchorPane.topAnchor="413.8">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -526,54 +538,54 @@
                                     <Button fx:id="Borrow_clear1" layoutX="482.0" layoutY="493.59999999999997" mnemonicParsing="false" onAction="#ResidentClear" prefHeight="35.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@dashboardDes.css" text="Clear" AnchorPane.bottomAnchor="9.6" AnchorPane.rightAnchor="228.0" />
                                     <Button fx:id="Borrow_delete1" layoutX="367.0" layoutY="493.59999999999997" mnemonicParsing="false" onAction="#ResidentDelete" prefHeight="35.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@dashboardDes.css" text="Delete" AnchorPane.bottomAnchor="9.6" AnchorPane.rightAnchor="336.0" />
                                     <Button fx:id="Borrow_update1" layoutX="596.0" layoutY="496.0" mnemonicParsing="false" onAction="#ResidentUpdate" prefHeight="35.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@dashboardDes.css" text="Update" AnchorPane.bottomAnchor="9.6" AnchorPane.rightAnchor="120.0" />
-                                    <Label alignment="CENTER_RIGHT" layoutX="293.0" layoutY="429.0" prefHeight="20.0" prefWidth="106.0" text="Household " AnchorPane.topAnchor="421.0">
+                                    <Label alignment="CENTER_RIGHT" layoutX="293.0" layoutY="413.8" prefHeight="20.0" prefWidth="106.0" text="Household " AnchorPane.topAnchor="413.8">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Resident_home" layoutX="102.4" layoutY="389.4" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="417.0" />
-                                    <TextField fx:id="Resident_address" layoutX="102.4" layoutY="425.4" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="462.0" />
-                                    <TextField fx:id="Resident_nation" layoutX="404.0" layoutY="325.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="327.0" />
-                                    <Label layoutX="41.0" layoutY="429.4" text="Address" AnchorPane.topAnchor="466.0">
+                                    <TextField fx:id="Resident_home" layoutX="102.4" layoutY="410.6" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="410.6" />
+                                    <TextField fx:id="Resident_address" layoutX="102.4" layoutY="449.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="102.4" AnchorPane.topAnchor="449.0" />
+                                    <TextField fx:id="Resident_nation" layoutX="404.0" layoutY="334.6" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="334.6" />
+                                    <Label layoutX="44.0" layoutY="451.4" text="Address" AnchorPane.topAnchor="451.4">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="328.0" layoutY="327.4" text="Nationality" AnchorPane.topAnchor="327.0">
+                                    <Label layoutX="328.0" layoutY="337.8" text="Nationality" AnchorPane.topAnchor="337.8">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="Resident_role" layoutX="404.0" layoutY="369.8" onAction="#setHouseNameOnRoleSelection" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" AnchorPane.topAnchor="372.0" />
-                                    <AnchorPane layoutX="652.0" layoutY="282.0" prefHeight="179.0" prefWidth="135.0" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="282.0">
+                                    <ComboBox fx:id="Resident_role" layoutX="404.0" layoutY="373.0" onAction="#setHouseNameOnRoleSelection" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" AnchorPane.topAnchor="373.0" />
+                                    <AnchorPane layoutX="652.0" layoutY="293.8" prefHeight="179.0" prefWidth="135.0" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="293.8">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
                                           <ImageView fx:id="Resident_image" fitHeight="179.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Button fx:id="House_insertImg" layoutY="142.0" mnemonicParsing="false" onAction="#addResidentInsertImage" prefHeight="31.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Insert">
+                                          <Button fx:id="House_insertImg" layoutY="142.0" mnemonicParsing="false" onAction="#addResidentInsertImage" prefHeight="31.0" prefWidth="135.0" style="-fx-cursor: hand; -fx-background-color: linear-gradient(to bottom right, #2d658c, #2ca772);" styleClass="shadow" text="Insert" textFill="WHITE">
                                              <font>
-                                                <Font size="16.0" />
+                                                <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Button>
                                        </children>
                                     </AnchorPane>
-                                    <TextField fx:id="Resident_house1" layoutX="404.0" layoutY="425.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="417.0" />
-                                    <ComboBox fx:id="Resident_house2" layoutX="404.0" layoutY="448.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" />
-                                    <Label layoutX="327.0" layoutY="286.4" text="Resident ID" AnchorPane.topAnchor="286.4">
+                                    <TextField fx:id="Resident_house1" layoutX="404.0" layoutY="410.6" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.topAnchor="410.6" />
+                                    <ComboBox fx:id="Resident_house2" layoutX="404.0" layoutY="410.6" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" AnchorPane.topAnchor="410.6" />
+                                    <Label layoutX="327.0" layoutY="301.0" text="Resident ID" AnchorPane.topAnchor="301.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="Resident_ID" layoutX="403.0" layoutY="282.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="282.0" />
+                                    <TextField fx:id="Resident_ID" layoutX="404.0" layoutY="297.0" prefHeight="26.0" prefWidth="214.0" styleClass="textfield" stylesheets="@dashboardDes.css" AnchorPane.leftAnchor="404.0" AnchorPane.topAnchor="297.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="setting_form" prefHeight="560.0" prefWidth="836.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="setting_form" prefHeight="560.0" prefWidth="836.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="23.0" layoutY="18.0" prefHeight="525.0" prefWidth="786.0" stylesheets="@dashboardDes.css">
+                              <AnchorPane layoutX="13.0" layoutY="7.0" prefHeight="546.0" prefWidth="810.0" stylesheets="@dashboardDes.css">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
@@ -584,33 +596,21 @@
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <PasswordField fx:id="password_field_password" layoutX="20.0" layoutY="59.0" prefHeight="30.0" prefWidth="230.0" promptText="Enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
-                                    <TextField fx:id="text_field_password" layoutX="20.0" layoutY="59.0" prefHeight="30.0" prefWidth="230.0" promptText="Enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
-                                    <CheckBox fx:id="SettingForm_PassWordHiddencheckbox" layoutX="282.0" layoutY="65.0" mnemonicParsing="false" onAction="#CheckBoxHiddenPassword" text="Show password character" />
-                                    <PasswordField fx:id="password_field_reenter" layoutX="20.0" layoutY="107.0" prefHeight="30.0" prefWidth="230.0" promptText="Re-enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
-                                    <TextField fx:id="text_field_reenter" layoutX="20.0" layoutY="107.0" prefHeight="30.0" prefWidth="230.0" promptText="Re-Enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
-                                    <Label layoutX="13.0" layoutY="156.0" text="Change Currency" AnchorPane.leftAnchor="20.0">
+                                    <PasswordField fx:id="password_field_password" layoutX="20.0" layoutY="66.0" prefHeight="30.0" prefWidth="230.0" promptText="Enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
+                                    <TextField fx:id="text_field_password" layoutX="20.0" layoutY="66.0" prefHeight="30.0" prefWidth="230.0" promptText="Enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
+                                    <CheckBox fx:id="SettingForm_PassWordHiddencheckbox" layoutX="282.0" layoutY="72.0" mnemonicParsing="false" onAction="#CheckBoxHiddenPassword" text="Show password character" />
+                                    <PasswordField fx:id="password_field_reenter" layoutX="20.0" layoutY="110.0" prefHeight="30.0" prefWidth="230.0" promptText="Re-enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
+                                    <TextField fx:id="text_field_reenter" layoutX="20.0" layoutY="110.0" prefHeight="30.0" prefWidth="230.0" promptText="Re-Enter New Password" styleClass="passwordField" stylesheets="@dashboardDes.css" />
+                                    <Button fx:id="changePasswordBtn" layoutX="652.0" layoutY="499.0" mnemonicParsing="false" onAction="#settingPasswordChange" style="-fx-background-color: white; -fx-border-color: linear-gradient(to bottom right, #2d658c, #2ca772); -fx-border-radius: 3px;" text="Confirm Changes">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font></Button>
+                                    <Label layoutX="20.0" layoutY="158.0" text="Change Username">
                                        <font>
                                           <Font name="System Bold" size="20.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="Setting_currency" layoutX="20.0" layoutY="194.0" prefHeight="30.0" prefWidth="230.0" promptText="Please Choose Your Currency" />
-                                    <Label layoutX="20.0" layoutY="238.0" text="Other Settings" AnchorPane.leftAnchor="20.0">
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <CheckBox fx:id="resetdata" layoutX="21.0" layoutY="274.0" mnemonicParsing="false" text="Reset current data every month" AnchorPane.leftAnchor="20.0">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </CheckBox>
-                                    <CheckBox fx:id="resetdata1" layoutX="361.0" layoutY="274.0" mnemonicParsing="false" text="Extract log to .xlsx file (Currently Beta)" AnchorPane.leftAnchor="361.0">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </CheckBox>
-                                    <Button fx:id="changePasswordBtn" layoutX="568.0" layoutY="70.0" mnemonicParsing="false" onAction="#settingPasswordChange" text="Button" />
+                                    <TextField fx:id="text_field_username" layoutX="20.0" layoutY="196.0" prefHeight="30.0" prefWidth="230.0" promptText="Enter new Username" styleClass="passwordField" stylesheets="@dashboardDes.css" />
                                  </children>
                               </AnchorPane>
                            </children>

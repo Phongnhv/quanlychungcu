@@ -44,3 +44,85 @@ public void HouseAdd() {
             e.printStackTrace();
         }
     }
+    @FXML
+    private Button House_update;
+
+
+    @FXML
+    private Button House_delete;
+
+    @FXML
+    private Button House_add;
+
+    @FXML
+    private Button House_clear;
+
+    @FXML
+    private Button Borrow_delete;
+
+    @FXML
+    private Button Borrow_update;
+
+    @FXML
+    private Button Borrow_clear;
+
+    @FXML
+    private Button Borrow_add;
+
+    @FXML
+    private Button minimize;
+
+    @FXML
+    private Button changePasswordBtn;
+
+    @FXML
+    private TableColumn<?, ?> Income_col_no;
+
+    @FXML
+    private Button Expense_updateBtn;
+
+    @FXML
+    private Button Expense_submitBtn;
+
+    @FXML
+    private Button Expense_deleteBtn;
+
+    @FXML
+    private TableColumn<?, ?> Expense_col_no1;
+
+    @FXML
+    private TableColumn<?, ?> Expense_col_no11;
+
+    @FXML
+    private Button Expense_clearBtn;
+
+    @FXML
+    private Button Activity_clear;
+
+    @FXML
+    private Button Activity_delete;
+
+    @FXML
+    private Button Activity_submit;
+
+    @FXML
+    private Button Activity_update;
+
+//////////////////////////////////////////////////
+
+
+    @FXML
+    private Button SignupBtn;
+
+
+    @FXML
+    private Button Close;
+
+    @FXML
+    private Button Login_signupBtn;
+
+    @FXML
+    private Button Login_returnBtn;
+
+    @FXML
+    private AnchorPane main_form1;

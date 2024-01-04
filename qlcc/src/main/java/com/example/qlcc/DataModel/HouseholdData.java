@@ -1,8 +1,11 @@
 package com.example.qlcc.DataModel;
 
 public class HouseholdData {
-    private int HouseID, residentNum;
-    private String HouseOwner, HouseName, HouseOwnerID;
+    private final int HouseID;
+    private final int residentNum;
+    private final String HouseOwner;
+    private final String HouseName;
+    private final String HouseOwnerID;
     public HouseholdData (int HouseID, int residentNum, String HouseOwner, String HouseName, String HouseOwnerID){
         this.HouseID = HouseID;
         this.residentNum = residentNum;

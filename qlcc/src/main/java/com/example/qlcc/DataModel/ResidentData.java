@@ -3,17 +3,17 @@ package com.example.qlcc.DataModel;
 import java.util.Date;
 
 public class ResidentData {
-    private String residentID;
-    private String name;
-    private String hometown;
-    private String permanentAddress;
-    private Date birth;
-    private String gender;
-    private String nation;
-    private String role;
-    private int HouseID;
-    private String HouseName;
-    private String Image;
+    private final String residentID;
+    private final String name;
+    private final String hometown;
+    private final String permanentAddress;
+    private final Date birth;
+    private final String gender;
+    private final String nation;
+    private final String role;
+    private final int HouseID;
+    private final String HouseName;
+    private final String Image;
 
     public ResidentData(String residentID, String name, String hometown, String permanentAddress,
                         Date birth, String gender, String nation, String role, int houseID, String image, String houseName){
@@ -32,6 +32,7 @@ public class ResidentData {
 
     public String getHouseName(){return HouseName;}
     public String getResidentID(){return residentID;}
+
     public String getName(){return name;}
     public String getHometown(){return hometown;}
     public String getPermanentAddress(){return permanentAddress;}

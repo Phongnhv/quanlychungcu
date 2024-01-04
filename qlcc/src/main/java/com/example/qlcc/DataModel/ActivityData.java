@@ -3,13 +3,14 @@ package com.example.qlcc.DataModel;
 import java.util.Date;
 
 public class ActivityData {
-    private Integer id;
-    private String name;
-    private String hostID;
-    private String location;
-    private Date date;
-    private String description;
-    private String hostname;
+    private final Integer id;
+    private final Date endDate;
+    private final String name;
+    private final String hostID;
+    private final String location;
+    private final Date date;
+    private final String description;
+    private final String hostname;
 
     public ActivityData(Integer no,
                         String name,
@@ -17,7 +18,8 @@ public class ActivityData {
                         String hostID,
                         String location,
                         Date date,
-                        String description){
+                        String description,
+                        Date endDate){
         this.id = no;
         this.name = name;
         this.location = location;
@@ -25,11 +27,15 @@ public class ActivityData {
         this.description = description;
         this.hostID = hostID;
         this.hostname = hostname;
+        this.endDate = endDate;
     }
-
+    public Date getEndDate(){
+        return endDate;
+    }
     public Integer getId(){
         return id;
     }
+
     public String getName(){
         return name;
     }

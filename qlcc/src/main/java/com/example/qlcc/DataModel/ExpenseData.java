@@ -1,14 +1,12 @@
 package com.example.qlcc.DataModel;
 
-import java.sql.Date;
-
 public class ExpenseData {
-    private Integer no;
-    private String name;
-    private String Category;
-    private int Amount;
-    private int maxAmount;
-    private String description;
+    private final Integer no;
+    private final String name;
+    private final String Category;
+    private final int Amount;
+    private final int maxAmount;
+    private final String description;
 
     public ExpenseData( Integer no,
                         String name,
@@ -27,15 +25,18 @@ public class ExpenseData {
     public Integer getNo(){
         return no;
     }
+
     public String getName(){
         return name;
     }
     public String getCategory(){
         return Category;
     }
+
     public int getAmount(){
         return Amount;
     }
+
     public String getDescription(){
         return description;
     }

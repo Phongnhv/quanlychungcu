@@ -13,7 +13,6 @@ public class ManagerApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        //Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(ManagerApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setOnMousePressed((MouseEvent event) -> {

@@ -1,6 +1,7 @@
 package com.example.qlcc;
 
 import com.example.qlcc.DataModel.CurrentUserData;
+import com.example.qlcc.DatabaseConnector.Database;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,17 +19,12 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class HelloController {
-    @FXML
-    private Button Close;
     public void Close(){
         System.exit(0);
     }
 
     @FXML
     private Button loginBtn;
-
-    @FXML
-    private Button Login_signupBtn;
 
     @FXML
     private TextField Signup_username;
@@ -40,19 +36,11 @@ public class HelloController {
     private PasswordField Signup_reenter;
 
     @FXML
-    private Button Login_returnBtn;
-
-    @FXML
-    private AnchorPane main_form1;
-
-    @FXML
     private PasswordField password;
 
     @FXML
     private TextField username;
 
-    @FXML
-    private Button SignupBtn;
 
     @FXML
     private AnchorPane right_form1;
@@ -134,7 +122,7 @@ public class HelloController {
                     alert.showAndWait();
                 }
             }
-        } catch(Exception e){e.printStackTrace();
+        } catch(Exception e){e.printStackTrace(System.out);
         }
     }
 
@@ -193,7 +181,9 @@ public class HelloController {
                     alert.setHeaderText(null);
                     alert.setContentText("You have successfully sign up \nProceed to Login?");
                     Optional<ButtonType> option =  alert.showAndWait();
-                    if (option.get().equals(ButtonType.OK)){
+
+                    assert option.orElse(null) != null;
+                    if (option.orElse(null).equals(ButtonType.OK)){
                         MoveToLogin();
                     }
                 }
@@ -206,7 +196,7 @@ public class HelloController {
                 alert.showAndWait();
             }
         }catch(Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 }
