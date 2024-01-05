@@ -41,9 +41,6 @@ public class dashboardController implements Initializable {
     ResultSet result;
     Statement statement;
 
-    /**
-     * Available Form
-     * **/
     @FXML
     private ComboBox<String> Activity_hostname;
 
@@ -216,6 +213,7 @@ public class dashboardController implements Initializable {
                 if (newValue == null || newValue.isEmpty()){
                     return true;
                 }
+
                 String searchKey = newValue.toLowerCase();
 
                 if(predicateActivityData.getName().toLowerCase().contains(searchKey)){
@@ -564,12 +562,10 @@ public class dashboardController implements Initializable {
     public void addExpenseShowListData(){
         addAvailableListD = addExpenseListData();
 
-        //Expense_col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
         Expense_col_purpose.setCellValueFactory(new PropertyValueFactory<>("name"));
         Expense_col_category.setCellValueFactory(new PropertyValueFactory<>("Category"));
         Expense_col_amount.setCellValueFactory(new PropertyValueFactory<>("Amount"));
         Expense_col_date.setCellValueFactory(new PropertyValueFactory<>("maxAmount"));
-        //Expense_col_description.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         Expense_table.setItems(addAvailableListD);
     }
@@ -725,8 +721,6 @@ public class dashboardController implements Initializable {
         String NumNow = String.valueOf(Number);
         String deleteData = "DELETE FROM available WHERE ID = " + NumNow;
         ExpenseData expenseD = Expense_table.getSelectionModel().getSelectedItem();
-
-        //System.out.println(expenseD.getAmount());
 
         connect = Database.connectDB();
 
@@ -971,7 +965,6 @@ public class dashboardController implements Initializable {
         });
     }
 
-    //TODO add another hostID combo box
     public void addBorrowShowListData(){
         addBorrowListD = addBorrowListData();
 
@@ -993,7 +986,6 @@ public class dashboardController implements Initializable {
 
 
         Borrow_FacName.setValue(expenseD.getFacilityName());
-        //Expense_amount.setText(String.valueOf(expenseD.getAmount()));
         Borrow_hostname.getSelectionModel().clearSelection();
         Borrow_hostname.setValue(expenseD.getHostName());
         Borrow_amount.setText(String.valueOf(expenseD.getAmount()));
@@ -1007,7 +999,6 @@ public class dashboardController implements Initializable {
         Number = expenseD.getBorrowID();
     }
 
-    //TODO rewrite setHostNameList
     public void setHostNameList()
     {
         HostName.clear();
@@ -1069,12 +1060,9 @@ public class dashboardController implements Initializable {
         ObservableList<String> ObserveList = FXCollections.observableArrayList(ActivityName);
 
         Borrow_activity.setItems(ObserveList);
-
-        //Borrow_activity.getEditor().textProperty().bindBidirectional();
     }
 
     public void addBorrowerIDSelection(){
-        //BorrowData borrowD = Borrow_table.getSelectionModel().getSelectedItem();
         String sql = "Select residentID from resident WHERE Name = '" + Borrow_hostname.getSelectionModel().getSelectedItem() + "'";
 
         HostId.clear();
@@ -1118,7 +1106,6 @@ public class dashboardController implements Initializable {
             while (result.next()){
                 FacilityName.add(result.getString(2));
                 FacilityID.add(result.getInt(1));
-                //System.out.println(result.getString(2));
             }
 
         }catch(Exception e){
@@ -1135,7 +1122,6 @@ public class dashboardController implements Initializable {
     @FXML
     private ComboBox<String> Borrow_hostID;
 
-    //TODO add borrow means minus facility, check if the facility is enough to borrow
     public void BorrowAdd() {
 
         String insertData = "INSERT INTO borrow (Name,HostID,BorrowingDate,ReturnDate,ActivityID,FacilityID, Amount) VALUES (?,?,?,?,?,?,?)";
@@ -1160,7 +1146,6 @@ public class dashboardController implements Initializable {
             if (Borrow_FacName.getSelectionModel().getSelectedItem() == null
                     || Borrow_amount.getText().isEmpty()
                     || Borrow_hostname.getSelectionModel().getSelectedItem() == null
-                    //|| Borrow_activity.getSelectionModel().getSelectedItem() == null
                     || Borrow_date1.getValue() == null
                     || Borrow_date2.getValue() == null){
 
@@ -1187,7 +1172,6 @@ public class dashboardController implements Initializable {
             } else
             {
                 setHostNameList();
-                //String UN = userData.getUsername();
                 prepare = connect.prepareStatement(insertData);
                 prepare.setString(1,Borrow_FacName.getSelectionModel().getSelectedItem());
                 prepare.setString(2, HostId.get(HostName.indexOf(Borrow_hostname.getSelectionModel().getSelectedItem())));
@@ -1197,13 +1181,10 @@ public class dashboardController implements Initializable {
                 prepare.setInt(6, FacilityID.get(FacilityName.indexOf(Borrow_FacName.getSelectionModel().getSelectedItem())));
                 prepare.setInt(7, Integer.parseInt(Borrow_amount.getText()));
 
-                //prepare.setString(6,UN);
-
                 prepare.executeUpdate();
 
                 String updateFacilityDataSql = "UPDATE available SET Available = Available - " + Borrow_amount.getText()
                         + " WHERE ID = " + FacilityID.get(FacilityName.indexOf(Borrow_FacName.getSelectionModel().getSelectedItem()));
-                //System.out.println(updateFacilityDataSql);
 
                 PreparedStatement updateFacility = connect.prepareStatement(updateFacilityDataSql);
 
@@ -1413,7 +1394,6 @@ public class dashboardController implements Initializable {
                                         alert2.setContentText("Successfully Deleted!");
                                         alert2.showAndWait();
                                     } else {
-                                        //System.out.println(updateBorrowSql);
                                         PreparedStatement updateBorrow = connect.prepareStatement(updateBorrowSql);
                                         updateBorrow.executeUpdate();
 
@@ -1477,7 +1457,6 @@ public class dashboardController implements Initializable {
     @FXML
     private TableView<HouseholdData> House_table;
 
-    //TODO ad owner and ownerID combo box. ownerID combo box hasn't included
     List <String> ResidentName = new ArrayList<>();
     List <String> ResidentID = new ArrayList<>();
 
@@ -1873,7 +1852,6 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             while (result.next()){
-                //System.out.println(result.getString(1));
                 expenseD = new ResidentData(result.getString(1),
                         result.getString(2),
                         result.getString(3),
@@ -1963,8 +1941,6 @@ public class dashboardController implements Initializable {
         Resident_role.getSelectionModel().clearSelection();
         Resident_role.setValue(expenseD.getRole());
 
-        //(expenseD.getResidentID());
-
         Resident_house1.setText(expenseD.getHouseName());
         Resident_house2.getSelectionModel().clearSelection();
         Resident_house2.setValue(expenseD.getHouseName());
@@ -2002,7 +1978,6 @@ public class dashboardController implements Initializable {
             location = location.replace("qlcc/dashboard.fxml","Image/");
             location = location.replace("file:/", "");
             location = location.replace("/", "\\");
-            //System.out.println(location);
         }
         return location;
     }
@@ -2144,7 +2119,6 @@ public class dashboardController implements Initializable {
                 alert.showAndWait();
             }else
             {
-                //ResultSet GenerateKey;
                 int setHouse = -1;
                 if(Resident_role.getSelectionModel().getSelectedItem().equals("Member")){
                     setHouse = HouseID.get(HouseName.indexOf(Resident_house2.getSelectionModel().getSelectedItem()));
@@ -2154,17 +2128,12 @@ public class dashboardController implements Initializable {
 
                     PreparedStatement PrePrepare = connect.prepareStatement(updateHouseSql);
 
-                    //PrePrepare.setInt(1,HouseID.get(HouseName.indexOf(Resident_house2.getSelectionModel().getSelectedItem())));
-
                     PrePrepare.executeUpdate();
 
                 }else {
-                    //prepare.setString(8,Resident_house1.getText());
-
                     String updateHouseSql = "INSERT INTO household (residentNum, Houseowner, housename,ownerID) " +
                             "VALUES (1,?,?,'tmp')";
 
-                    // = Database.connectDB();
                     PreparedStatement PrePrepare = connect.prepareStatement(updateHouseSql,Statement.RETURN_GENERATED_KEYS);
                     PrePrepare.setString(2, Resident_house1.getText());
                     PrePrepare.setString(1, Resident_name.getText());
@@ -2214,7 +2183,7 @@ public class dashboardController implements Initializable {
                         genKey = result.getString(1);
                     }
                 }
-                //System.out.println(genKey);
+
                 if (Resident_role.getSelectionModel().getSelectedItem().equals("HouseOwner"))
                 {
                     addResidentHouseSelection();
@@ -2231,8 +2200,6 @@ public class dashboardController implements Initializable {
                             "Where HouseID = " +setHouse;
 
                     prepare = connect.prepareStatement(sql);
-
-                    //System.out.println(prepare.toString());
 
                     prepare.executeUpdate();
                 }
@@ -2264,8 +2231,6 @@ public class dashboardController implements Initializable {
         PickedResidentData = null;
     }
 
-
-    //TODO
     public void ResidentUpdate(){
 
         connect = Database.connectDB();
@@ -2319,7 +2284,7 @@ public class dashboardController implements Initializable {
                         {
                             if (!PickedResidentData.getHouseName().equals(Resident_house2.getSelectionModel().getSelectedItem()))
                             {
-                                //TODO update data
+                                // update data
                                 String sql = "UPDATE household SET residentnum = CASE " +
                                         "WHEN houseID = "+ HouseID.get(HouseName.indexOf(Resident_house2.getSelectionModel().getSelectedItem())) + " THEN residentnum + 1 " +
                                         "WHEN houseID = "+ PickedResidentData.getHouseID() + " THEN residentnum - 1 " +
@@ -2328,15 +2293,11 @@ public class dashboardController implements Initializable {
 
                                 PreparedStatement updateHouseData = connect.prepareStatement(sql);
 
-                                //System.out.println(sql);
-                                //worked
                                 updateHouseData.executeUpdate();
                             }
                         }
                         else if (PickedResidentData.getRole().equals("HouseOwner")) //house owner -> member
                         {
-                            /* set the old House owner = 'null', +1 residentnum in new house, -1 in old house*/
-
                             String sql = "UPDATE household SET houseowner = CASE " +
                                     "WHEN houseID = " + PickedResidentData.getHouseID() + " THEN 'null' " +
                                     "ELSE houseowner END, " +
@@ -2350,12 +2311,10 @@ public class dashboardController implements Initializable {
 
                             PreparedStatement updateHouseData = connect.prepareStatement(sql);
 
-                            //quite good
-                            //System.out.println(sql);
                             updateHouseData.executeUpdate();
                         }
                     } else { //if Role == 'HouseOwner', using Resident_house1
-                        //TODO change setHouse to if else
+                        //change setHouse to if else
 
                         if (PickedResidentData.getRole().equals("Member")) // member -> house owner
                         {
@@ -2367,7 +2326,7 @@ public class dashboardController implements Initializable {
 
                             if (!result.next())
                             {
-                                //TODO if the house is not exist, add house and set owner
+                                //if the house is not exist, add house and set owner
                                 String sql = "INSERT INTO household (residentnum, Houseowner, housename, ownerID) " +
                                         " VALUES (0,?,?,?) ";
 
@@ -2377,18 +2336,16 @@ public class dashboardController implements Initializable {
                                 updateHouseData.setString(2, Resident_house1.getText());
                                 updateHouseData.setString(3, Resident_ID.getText());
 
-                                //TODO Update the setHouseList
+                                //Update the setHouseList
 
-                                //System.out.println(sql);
                                 updateHouseData.executeUpdate();
 
                                 addResidentHouseSelection();
                             }
                             else {
-                                //TODO else set existed house owner to this person, set the old house owner to member
+                                // else set existed house owner to this person, set the old house owner to member
                                 String sql = "UPDATE resident SET role = 'Member' WHERE " +
                                         " residentID = (SELECT ownerID FROM household WHERE houseID = "+ HouseID.get(HouseName.indexOf(Resident_house1.getText())) +")";
-                                //System.out.println(sql);
 
                                 PreparedStatement mmb = connect.prepareStatement(sql);
                                 mmb.executeUpdate();
@@ -2398,8 +2355,8 @@ public class dashboardController implements Initializable {
                                         "' ELSE Houseowner END, " +
                                         "ownerID = CASE WHEN HouseID = "  + HouseID.get(HouseName.indexOf(Resident_house1.getText())) + " THEN '" + Resident_ID.getText() +
                                         "' ELSE ownerID END ";
+
                                 //then update
-                                //System.out.println(sql);
                                 PreparedStatement m2 = connect.prepareStatement(sql);
                                 m2.executeUpdate();
                             }
@@ -2425,39 +2382,33 @@ public class dashboardController implements Initializable {
                                 PreparedStatement checkPrep = connect.prepareStatement(checksql);
                                 checkPrep.setString(1, Resident_house1.getText());
 
-                                /////
-                                //System.out.println(checkPrep);
-                                ////
-
                                 result = checkPrep.executeQuery();
 
                                 if (!result.next()) {
                                     sql = "INSERT INTO household (residentNum, Houseowner, housename, ownerID) " +
                                             " VALUES (0,'" + Resident_name.getText() + "','" + Resident_house1.getText() + "','" + Resident_ID.getText() + "')";
 
-                                    //System.out.println(sql);
-
                                     PreparedStatement updateHouseData = connect.prepareStatement(sql);
                                     updateHouseData.executeUpdate();
 
-                                    //TODO if house is not exist, add new house and set owner
+                                    //if house is not exist, add new house and set owner
                                     addResidentHouseSelection();
 
                                 }else {
                                     sql = "UPDATE resident SET role = 'Member' WHERE " +
                                             " residentID = (SELECT ownerID FROM household WHERE houseID = "+ HouseID.get(HouseName.indexOf(Resident_house1.getText())) +")";
-                                    //System.out.println(sql);
+
                                     PreparedStatement UpdateResidentData = connect.prepareStatement(sql);
                                     UpdateResidentData.executeUpdate();
 
-                                    //TODO else change new house owner to this person, set the old house owner to member
+                                    // else change new house owner to this person, set the old house owner to member
                                     sql = "UPDATE household SET " +
                                             "Houseowner = CASE WHEN HouseID = " + HouseID.get(HouseName.indexOf(Resident_house1.getText())) + " THEN '" + Resident_name.getText() +
                                             "' ELSE Houseowner END, " +
                                             "ownerID = CASE WHEN HouseID = "  + HouseID.get(HouseName.indexOf(Resident_house1.getText())) + " THEN '" + Resident_ID.getText() +
                                             "' ELSE ownerID END ";
                                     //then update
-                                    //System.out.println(sql);
+
                                     PreparedStatement UpdateHouseData = connect.prepareStatement(sql);
                                     UpdateHouseData.executeUpdate();
 
@@ -2467,13 +2418,13 @@ public class dashboardController implements Initializable {
                                         "WHEN houseID = "+ HouseID.get(HouseName.indexOf(Resident_house1.getText())) + " THEN residentnum + 1 " +
                                         "WHEN houseID = "+ PickedResidentData.getHouseID() + " THEN residentnum - 1 " +
                                         "ELSE residentnum END " ;
-                                //System.out.println(sql);
+
                                 PreparedStatement mmb = connect.prepareStatement(sql);
                                 mmb.executeUpdate();
 
                                 sql = "UPDATE household SET houseowner = 'null', ownerID = 'null' WHERE " +
                                         "houseID = " + PickedResidentData.getHouseID();
-                                //System.out.println(sql);
+
                                 PreparedStatement m2 = connect.prepareStatement(sql);
                                 m2.executeUpdate();
                                 //TODO +1 new  house, -1 old house
@@ -2547,7 +2498,6 @@ public class dashboardController implements Initializable {
 
                     //-1 member from house
                     String houseSql = "UPDATE household SET residentnum = CASE " +
-                            //"WHEN houseID = "+ HouseID.get(HouseName.indexOf(Resident_house1.getText())) + " THEN residentnum + 1 " +
                             "WHEN houseID = "+ PickedResidentData.getHouseID() + " THEN residentnum - 1 " +
                             "ELSE residentnum END ";
 
@@ -2902,6 +2852,7 @@ public class dashboardController implements Initializable {
         stage.setIconified(true);
     }
     public void defaultNav(){
+
         //Navigate Home Form First
         Activity_form.setVisible(true);
         Available_form.setVisible(false);
@@ -2918,6 +2869,7 @@ public class dashboardController implements Initializable {
 
         setActivityHostNameList();
         addActivityShowListData();
+
         //Re-create hover css on navigate buttons
         Activity_btn.setOnMouseEntered(MouseEvent ->{
             if (CurrentNavigator == 1) return;
@@ -2980,11 +2932,10 @@ public class dashboardController implements Initializable {
 
         setFacilityList();
 
+        setBorrowTableColor();
+
         ShowUsername();
     }
 }
 
-// re-configure the UI alignment in resident form
-//TODO change setting form
-//TODO add end date to activity form
 //TODO change UI of login form and remove auto fill username password

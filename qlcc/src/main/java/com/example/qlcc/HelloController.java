@@ -142,7 +142,7 @@ public class HelloController {
         Alert alert;
         String sql = "INSERT INTO admin (username,password) VALUES(?,?)";
         connect = Database.connectDB();
-        //System.out.println(Signup_username.getText() + Signup_password.getText());
+
         try{
             if (Signup_password.getText().isEmpty()
                     ||Signup_username.getText().isEmpty()
